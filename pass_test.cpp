@@ -24,9 +24,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    int ranks;
-    int nprocs;
-    int a;
+    int ranks, nprocs, a;
+
     MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MPI_COMM_WORLD, &ranks);
 	MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
@@ -34,7 +33,8 @@ int main(int argc, char *argv[])
     int *bd, bsize = 2000;
     MPI_Status status;
     MPI_Request req; 
-    MPI_Send_init(&a, 1, MPI_INT, 1, 0, MPI_COMM_WORLD, &req) ;
+    MPI_Send_init(&a, 1, MPI_INT, 1, 0, MPI_COMM_WORLD, &req);
+
     // MPI_Buffer_attach(malloc(bsize), bsize);
     int stp = 21;
 

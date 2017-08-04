@@ -1,0 +1,9 @@
+/usr/include: /usr/include/openmpi-x86_64 : usr/include/linux : /usr/lib64/openmpi/bin
+
+
+This is where mpic++ is:
+/scratch/a1/sge/mpich2/bin/mpic++
+```/openmpi/bin/mpirun (and probably mpic++)
+
+
+Should I use namespaces to differentiate between equations?

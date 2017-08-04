@@ -7,16 +7,17 @@
 #include <omp.h>
 
 
-int rank, nthreads, rlen=40;
+int rank, nthreads, rlen=800;
+char *procN;
 
 using namespace std;
 
-void getDeviceInformation();
+void getDeviceInformation()
 {
     nthreads = omp_get_num_procs();
     MPI_Get_processor_name(&procN,  &rlen);
 
-    cout << rank << " " << procN << " " << nthreads << " " << nGpu << endl;
+    cout << rank << " " << procN << " " << nthreads << endl;
 
     // From this I want what GPUs each proc can see, and how many threads they can make
     // This may require nvml to get the UUID of the GPUS, pass them all up to the 

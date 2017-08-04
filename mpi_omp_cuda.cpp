@@ -20,7 +20,7 @@ cudaDeviceProp *props;
 
 using namespace std;
 
-void getDeviceInformation();
+void getDeviceInformation()
 {
     cudaGetDeviceCount(nGpu);
     nthreads = omp_get_num_procs();
@@ -53,7 +53,6 @@ void getDeviceInformation();
 // Test device sight.
 int main(int argc, char *argv[])
 {
-
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     if (!rank) cout << "rank -- cpuname -- nThreads -- nGpu -- GPU# -- GPUname -- #SM -- CC" << endl;
