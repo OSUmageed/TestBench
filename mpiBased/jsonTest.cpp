@@ -4,7 +4,9 @@
 #include <stdlib.h>
 #include <typeinfo>
 #include <mpi.h>
-#include "json.hpp"
+#include "../json.hpp"
+
+using jsons =  nlohmann::json;
 
 // Test json
 int main(int argc, char *argv[])

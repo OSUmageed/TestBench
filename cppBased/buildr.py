@@ -1,4 +1,4 @@
-#!/usr/env/python
+#!~/anaconda/bin/python
 
 import os
 import os.path as op
@@ -17,12 +17,11 @@ outf = []
 for k in walker:
     outf.append(op.join(outpath, k.split(".")[0]))
 
-mayb = " -gencode arch=compute_35,code=sm_35 -std=c++11"
-
-libs = " -fopenmp -O3 -lm -lcudart"
+libs = " -fopenmp -O3 -std=c++11 -lm"
 
 for o, w in zip(outf, walker):
-    cmpstr = "mpic++ -o " + o + " " + w + libs
+    cmpstr = "g++ -o " + o + " " + w + libs
+    print(cmpstr)
     cmpreal = shlex.split(cmpstr)
     proc = sp.Popen(cmpreal)
     sp.Popen.wait(proc)

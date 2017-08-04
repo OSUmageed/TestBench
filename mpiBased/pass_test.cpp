@@ -18,7 +18,7 @@
 #include <typeinfo>
 #include <mpi.h>
 #include <unistd.h>
-#include "json.hpp"
+#include "../json.hpp"
 
 using namespace std;
 
