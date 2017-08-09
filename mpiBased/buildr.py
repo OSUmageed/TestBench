@@ -6,9 +6,14 @@ import sys
 import subprocess as sp
 import shlex
 
+## Change these on linux
+win=".exe"
+outpath = "bin"
+
 projpath = op.abspath(op.dirname(__file__))
 os.chdir(projpath)
-outpath = op.join(projpath, 'bin')
+fulloutpath = op.join(projpath, outpath)
+
 
 wlk = os.listdir(projpath)
 walker = [k for k in wlk if k.endswith(".cpp")]
@@ -19,13 +24,16 @@ for k in walker:
 
 mayb = " -gencode arch=compute_35,code=sm_35 -std=c++11"
 
-libs = " -fopenmp -std=c++11 -lm -lcudart"
+libs = " -fopenmp -std=c++11 -lm" # + " -lcudart"
+
+
 
 for o, w in zip(outf, walker):
-    cmpstr = "mpic++ -o " + o + " " + w + libs
-    print(cmpstr)
-    cmpreal = shlex.split(cmpstr)
-    proc = sp.Popen(cmpreal)
-    sp.Popen.wait(proc)
-
-
+    try:
+        cmpstr = "mpic++ -o " + o + win + " " + w + libs
+        print(cmpstr)
+        cmpreal = shlex.split(cmpstr)
+        proc = sp.Popen(cmpreal)
+        sp.Popen.wait(proc)
+    except:
+        continue

@@ -54,5 +54,5 @@ int main(int argc, char *argv[])
     int nt = atoi(argv[1]); //Nthreads
     threadLocTest(nt);
     MPI_Barrier(MPI_COMM_WORLD);
-	MPI_Finalize();
+    MPI_Finalize();
 }
