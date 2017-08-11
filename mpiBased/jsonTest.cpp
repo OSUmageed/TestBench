@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <numeric>
 #include "../json.hpp"
+#include <unordered_map>
 
 using jsons =  nlohmann::json;
 
@@ -26,7 +27,49 @@ int main(int argc, char *argv[])
 
     std::partial_sum(ivec.begin(), ivec.end(), sm.begin());
 
+    bool wha = myJ["mg"] == "level";
+
     std::cout << dt*5 << std::endl;
     std::cout << sm[0] << " " << sm.back() << std::endl;
+    std::cout << wha << std::endl;
+
+    // TestMap
+    std::unordered_map<int, double> whoamap;
+
+    std::cout << whoamap.size() << " " << whoamap.max_size() << std::endl;
+    double k2;
+
+    // std::cout << double
+    for (int k=2; k<100; k++)
+    {
+        k2 = k*0.02635;
+        std::cout << k2 << std::endl;
+        whoamap.insert(std::make_pair(k, k2));
+    }
+
+    std::cout << whoamap.size() << " " << whoamap.max_size() << std::endl;
+
+    std::string ext = ".json";
+    std::string myrank = std::to_string(k2);
+    std::string sout = argv[2];
+    sout.append(myrank);
+    sout.append(ext); 
+
+    std::cout << k2 << std::endl;
+
+    std::string boom = "Boom";
+
+    bool mal = boom.compare(argv[1]);
+
+    bool m2 = -1;
+
+    std::cout << m2 << " " << mal << std::endl;
+
+    std::cout << sout << std::endl;
+
+    // jsons j_umap(whoamap);
+
+    // std::cout << typeid(jm).name() << std::endl; 
+
     return 0;
 }
