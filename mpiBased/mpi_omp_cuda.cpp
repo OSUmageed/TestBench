@@ -11,7 +11,6 @@
 #include <omp.h>
 //#include <nvml.h> // If I use this I'll need to start a context first.
 
-
 // "MV2_COMM_WORLD_LOCAL_RANKs"
 // #define ENV_LOCAL_RANKs		"OMPI_COMM_WORLD_LOCAL_RANKs"
 
