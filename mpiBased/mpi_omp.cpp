@@ -21,7 +21,6 @@ void getDeviceInformation()
     int cid = sched_getcpu();
 
     cout << ranks << " " << procN << " " << nthreads << endl;
-
 }
 
 void threadLocTest(int nt)

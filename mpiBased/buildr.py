@@ -14,6 +14,7 @@ projpath = op.abspath(op.dirname(__file__))
 os.chdir(projpath)
 fulloutpath = op.join(projpath, outpath)
 
+print os.getcwd()
 
 wlk = os.listdir(projpath)
 walker = [k for k in wlk if k.endswith(".cpp")]
@@ -25,8 +26,6 @@ for k in walker:
 mayb = " -gencode arch=compute_35,code=sm_35 -std=c++11"
 
 libs = " -fopenmp -std=c++11 -lm" # + " -lcudart"
-
-
 
 for o, w in zip(outf, walker):
     try:
