@@ -20,7 +20,7 @@ for k in walker:
 libs = " -fopenmp -O3 -std=c++11 -lm"
 
 for o, w in zip(outf, walker):
-    cmpstr = "g++ -o " + o + " " + w + libs
+    cmpstr = "g++ " + w + " -o " + o + " " + libs
     print(cmpstr)
     cmpreal = shlex.split(cmpstr)
     proc = sp.Popen(cmpreal)

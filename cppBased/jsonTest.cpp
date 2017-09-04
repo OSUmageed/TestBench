@@ -5,7 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include "../json.hpp"
+#include "../json.h"
 #include <unordered_map>
 
 using jsons =  nlohmann::json;
@@ -66,6 +66,14 @@ int main(int argc, char *argv[])
     std::cout << m2 << " " << mal << std::endl;
 
     std::cout << sout << std::endl;
+
+    std::cout << "What is: nonsense" << std::endl;
+
+    std::cout << myJ["nonsense"] == NULL << std::endl;
+
+    std::cout << myJ["nonsense"] << std::endl;
+
+
 
     // jsons j_umap(whoamap);
 
