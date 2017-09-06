@@ -15,12 +15,12 @@ walker = [k for k in wlk if k.endswith(".cpp")]
 
 outf = []
 for k in walker:
-    outf.append(op.join(outpath, k.split(".")[0]))
+    outf.append(op.join("bin", k.split(".")[0]))
 
-libs = " -fopenmp -O3 -std=c++11 -lm"
+libs = " -fopenmp -O3 -std=c++11 -lm -w"
 
 for o, w in zip(outf, walker):
-    cmpstr = "g++ " + w + " -o " + o + " " + libs
+    cmpstr = "mpic++ " + w + " jsoncpp.cpp -o " + o + libs
     print(cmpstr)
     cmpreal = shlex.split(cmpstr)
     proc = sp.Popen(cmpreal)

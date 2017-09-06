@@ -5,79 +5,89 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include "../json.h"
+#include <typeinfo>
+#include "json/json.h"
 #include <unordered_map>
 
-using jsons =  nlohmann::json;
+typedef Json::Value jsons;
+
+using namespace std;
 
 // Test json
 int main(int argc, char *argv[])
 {
-    std::ifstream imzep("test.json", std::ifstream::in);
+    ifstream imzep("test.json", ifstream::in);
     jsons myJ;
     imzep >> myJ;
-    std::cout << myJ.dump(4) << std::endl;
+    cout << myJ << endl;
 
-    int dt = myJ["dt"]; 
-    std::cout << typeid(myJ["dm"]).name() << std::endl;
+    int dt = myJ["dt"].asInt(); 
+    cout << typeid(myJ["dm"]).name() << endl;
     imzep.close();
 
-    std::vector<int> ivec = myJ["arr"];
-    std::vector<int> sm(ivec.size());
+    // vector<int> ivec = myJ["arr"].asArray();
+    // vector<int> sm(ivec.size());
 
-    std::partial_sum(ivec.begin(), ivec.end(), sm.begin());
+    // partial_sum(ivec.begin(), ivec.end(), sm.begin());
 
-    bool wha = myJ["mg"] == "level";
+    cout << "New Json" << endl;
+    myJ["Bean"] = 40;
+    myJ["B"]["CD"] = 90;
+    myJ["FF"]["CD"]["yu"] = 850.0;
+    myJ["B"]["DF"] = 100050.9;
 
-    std::cout << dt*5 << std::endl;
-    std::cout << sm[0] << " " << sm.back() << std::endl;
-    std::cout << wha << std::endl;
+    cout << myJ << endl;
+
+    bool wha = myJ["mg"].asString() == "level";
+
+    cout << dt*5 << endl;
+    // cout << sm[0] << " " << sm.back() << endl;
+    cout << wha << endl;
 
     // TestMap
-    std::unordered_map<int, double> whoamap;
+    unordered_map<int, double> whoamap;
 
-    std::cout << whoamap.size() << " " << whoamap.max_size() << std::endl;
+    cout << whoamap.size() << " " << whoamap.max_size() << endl;
     double k2;
 
-    // std::cout << double
-    for (int k=2; k<100; k++)
+    // cout << double
+    for (int k=2; k<10; k++)
     {
         k2 = k*0.02635;
-        std::cout << k2 << std::endl;
-        whoamap.insert(std::make_pair(k, k2));
+        cout << k2 << endl;
+        whoamap.insert(make_pair(k, k2));
     }
 
-    std::cout << whoamap.size() << " " << whoamap.max_size() << std::endl;
+    cout << whoamap.size() << " " << whoamap.max_size() << endl;
 
-    std::string ext = ".json";
-    std::string myrank = std::to_string(k2);
-    std::string sout = argv[2];
+    string ext = ".json";
+    string myrank = to_string(k2);
+    string sout = argv[2];
     sout.append(myrank);
     sout.append(ext); 
 
-    std::cout << k2 << std::endl;
+    cout << k2 << endl;
 
-    std::string boom = "Boom";
+    string boom = "Boom";
 
     bool mal = boom.compare(argv[1]);
 
     bool m2 = -1;
 
-    std::cout << m2 << " " << mal << std::endl;
+    cout << m2 << " " << mal << endl;
 
-    std::cout << sout << std::endl;
+    cout << sout << endl;
 
-    std::cout << "What is: nonsense" << std::endl;
+    cout << "What is: nonsense" << endl;
+    int bl = myJ["nonsense"] == NULL;
 
-    std::cout << myJ["nonsense"] == NULL << std::endl;
+    cout << bl << endl;
 
-    std::cout << myJ["nonsense"] << std::endl;
-
-
+    cout << myJ["nonsense"] << endl;
 
     // jsons j_umap(whoamap);
 
-    // std::cout << typeid(jm).name() << std::endl; 
+    // cout << typeid(jm).name() << endl; 
 
     return 0;
 }
