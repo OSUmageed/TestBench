@@ -11,7 +11,7 @@ os.chdir(projpath)
 outpath = op.join(projpath, 'bin')
 
 wlk = os.listdir(projpath)
-walker = [k for k in wlk if k.endswith(".cpp")]
+walker = [k for k in wlk if k.endswith(".cpp") and "jsoncpp" not in k]
 
 outf = []
 for k in walker:

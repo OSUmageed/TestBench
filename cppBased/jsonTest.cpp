@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     cout << myJ << endl;
 
     int dt = myJ["dt"].asInt(); 
-    cout << typeid(myJ["dm"]).name() << endl;
+    cout << typeid(myJ["ImFalse"]).name() << endl;
     imzep.close();
 
     // vector<int> ivec = myJ["arr"].asArray();
@@ -37,8 +37,9 @@ int main(int argc, char *argv[])
     myJ["B"]["DF"] = 100050.9;
 
     cout << myJ << endl;
-
+    
     bool wha = myJ["mg"].asString() == "level";
+    if (&myJ["Imfalse"]) cout << "Yeah it's a nullptr " << bool(&myJ["Bean"]) << endl;
 
     cout << dt*5 << endl;
     // cout << sm[0] << " " << sm.back() << endl;
