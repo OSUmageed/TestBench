@@ -1,0 +1,167 @@
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/osumageed/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=7
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git jsontools)
+
+# User configuration
+# ORIG PATH?
+# /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:
+export PATH="$HOME/anaconda/bin:$HOME/.node_modules_global/bin:/usr/local/cuda/bin:/usr/local/cuda/include:/usr/include:/usr/local/include:/usr/lib:/usr/lib/include:/usr/lib/openmpi/include:$PATH"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/usr/local/lib/openmpi
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='gEdit'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+
+alias zshconfig="gedit ~/.zshrc >/dev/null 2>&1 &"
+alias ohmyzsh="gedit ~/.oh-my-zsh"
+alias myterm="nohup terminator --maximise --layout=Tfour >/dev/null 2>&1 &"
+alias LatexSucks="touch a.gz a.tdo a.bbl a.log a.out a.blg a.aux && rm -f *.gz *.tdo *.bbl *.log *.out *.aux *.blg" 
+alias pbcopy='xsel --clipboard --input'
+alias setOsu="git config user.name "OSUmageed" && git config user.email "mageed@oregonstate.edu""
+alias setNick="git config user.name "nikolaiusyk" && git config user.email "nikolaiusyk@gmail.com""
+alias setLins="git config user.name "TheLinspacer" && git config user.email "danielm2967@gmail.com""
+alias setSemi="git config user.name "semi-literate" && git config user.email "semi_literate@protonmail.com""
+alias -g wo=">/dev/null 2>&1 &"
+alias gitas="git add . && git status"
+alias empath="tr : '\n' <<<$PATH"
+alias gitwhat='git diff --cached --stat'
+alias sshClu='ssh mageed@compute-e-1.hpc.engr.oregonstate.edu'
+alias sshOsu='ssh mageed@access.engr.oregonstate.edu'
+alias fx="nemo . wo"
+#Kill the old credentials and add new ones.
+
+mth(){
+	echo $1 | bc
+}
+
+sshnew(){
+	eval "$(ssh-agent -s)";
+	ssh-add ~/.ssh/*id_rsa
+}
+
+gitstore(){
+	rm ~/.git-credentials
+	git config credential.helper store
+}
+
+# Tiny-Care-TerminalRC:
+# List of accounts to read the last tweet from, comma separated
+# The first in the list is read by the party parrot.
+export TTC_BOTS='tinycarebot,selfcare_bot,magicrealismbot'
+
+# Use this to have a different animal say a message in the big box.
+export TTC_SAY_BOX='parrot'
+
+# List of folders to look into for `git` commits, comma separated.
+export TTC_REPOS='~/Documents/1_SweptRuleResearch'
+
+# The max directory-depth to look for git repositories in
+# the directories defined with `TTC_REPOS`. Note that the deeper
+# the directory depth, the slower the results will be fetched.
+export TTC_REPOS_DEPTH=2
+
+# Which method is to be used to read the git commits ('gitstandup' | 'gitlog').
+# If you're having problems seeing your commits in the dahsboard, set
+# this value to gitlog.
+export TTC_GITBOT='gitlog'
+
+# Location/zip code to check the weather for. Both 90210 and "San Francisco, CA"
+# _should_ be ok (the zip code doesn't always work -- use a location
+# first, if you can). It's using weather.service.msn.com behind the curtains.
+export TTC_WEATHER='Philadelphia'
+
+# Set to false if you're an imperial lover <3
+export TTC_CELSIUS=false
+
+# Unset this if you _don't_ want to use Twitter keys and want to
+# use web scraping instead.
+# export TTC_APIKEYS=true
+
+# Refresh the dashboard every 20 minutes.
+export TTC_UPDATE_INTERVAL=10
+
+# Turn off terminal title
+export TTC_TERMINAL_TITLE=false
+
+# Twitter api keys
+# export TTC_CONSUMER_KEY='...'
+# export TTC_CONSUMER_SECRET='...'
+# export TTC_ACCESS_TOKEN='...'
+# export TTC_ACCESS_TOKEN_SECRET='...'
+
+# Note: in tiny-terminal-care < 1.0.7, the recommended variables for the Twitter
+# API keys were the ones before. As of 1.0.8, they are deprecated
+# (because the names are too generic), but will still be supported
+# until the next major version.
+
