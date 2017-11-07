@@ -2,8 +2,6 @@
     Just a testing main program for the functions
 */
 
-// Compile IT:  nvcc -o sandbx sandbox.cu -lm -restrict -gencode arch=compute_35,code=sm_35
-
 //nvcc -o sandbx sandbox.cu ../equations/Euler/Euler_Device.cu -lm -gencode arch=compute_35,code=sm_35 
 // g++ -o sndbx sandbox.cpp -O3 -lm --std=c++11
 // Yeah it works with g++ though (5.4)
@@ -18,7 +16,6 @@
 #include <typeinfo>
 #include <mpi.h>
 #include <unistd.h>
-#include "../json.hpp"
 
 using namespace std;
 
