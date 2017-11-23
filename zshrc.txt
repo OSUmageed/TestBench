@@ -115,6 +115,13 @@ gitstore(){
 	git config credential.helper store
 }
 
+export SCRATCH=/scratch/cluster-share/mime4/
+source /scratch/cluster-share/mime4/opt-local/intel/bin/compilervars.sh intel64
+if [ `/bin/hostname | /bin/awk -F. '{print $2}' | tr "[a-z]" "[A-Z]"` == "HPC" ]; then
+    . /scratch/a1/sge/settings-mpich2.sh
+    export PATH="/scratch/cluster-share/mime4/opt-local/miniconda2/bin:$PATH"
+fi
+
 # Tiny-Care-TerminalRC:
 # List of accounts to read the last tweet from, comma separated
 # The first in the list is read by the party parrot.
