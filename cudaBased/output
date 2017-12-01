@@ -1,0 +1,39 @@
+==============================================================
+job_number:                 97276
+jclass:                     NONE
+exec_file:                  job_scripts/97276
+submission_time:            11/30/2017 16:10:55.816
+owner:                      mageed
+uid:                        48448
+group:                      upg48448
+gid:                        11625
+supplementary group:        upg48448, mime_nrg
+sge_o_home:                 /nfs/stak/users/mageed
+sge_o_log_name:             mageed
+sge_o_path:                 /scratch/a1/sge/bin/lx-amd64:/scratch/a1/sge/mpich2i/bin:/scratch/a1/sge/bin/lx-amd64:/scratch/a1/sge/openmpi/bin:/usr/local/apps/cuda/cuda-9.0:/usr/local/apps/cuda/cuda-9.0/bin:/bin:/sbin:/scratch/cluster-share/mime4/opt-local/minconda2/bin:/usr/lib64/qt-3.3/bin:/nfs/stak/users/mageed/perl5/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin
+sge_o_shell:                /bin/tcsh
+sge_o_workdir:              /nfs/cluster-fserv/cluster-share/mime4/mageedan/TestBench/cudaBased
+sge_o_host:                 submit-em64t-01.hpc.engr.oregonstate.edu
+account:                    sge
+cwd:                        /nfs/cluster-fserv/cluster-share/mime4/mageedan/TestBench/cudaBased
+reserve:                    y
+merge:                      y
+hard resource_list:         hostname=compute-e-[1-2]
+mail_list:                  mageed@submit-em64t-01.hpc.engr.oregonstate.edu
+notify:                     FALSE
+job_name:                   gpuDetector
+priority:                   0
+jobshare:                   0
+hard_queue_list:            mime4
+env_list:                   LC_CTYPE=en_US.UTF-8,LANG=en_US.UTF-8,USER=mageed,LOGNAME=mageed,HOME=/nfs/stak/users/mageed,PATH=/scratch/a1/sge/bin/lx-amd64:/scratch/a1/sge/mpich2i/bin:/scratch/a1/sge/bin/lx-amd64:/scratch/a1/sge/openmpi/bin:/usr/local/apps/cuda/cuda-9.0:/usr/local/apps/cuda/cuda-9.0/bin:/bin:/sbin:/scratch/cluster-share/mime4/opt-local/minconda2/bin:/usr/lib64/qt-3.3/bin:/nfs/stak/users/mageed/perl5/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin,MAIL=/var/spool/mail/mageed,SHELL=/bin/tcsh,SSH_CLIENT=128.193.35.130 34890 22,SSH_CONNECTION=128.193.35.130 34890 128.193.35.50 22,SSH_TTY=/dev/pts/24,TERM=xterm,SELINUX_ROLE_REQUESTED=NONE,SELINUX_LEVEL_REQUESTED=NONE,SELINUX_USE_CURRENT_RANGE=NONE,XDG_SESSION_ID=32193,XDG_RUNTIME_DIR=/run/user/48448,HOSTTYPE=x86_64-linux-gnu,VENDOR=unknown,OSTYPE=linux-gnu,MACHTYPE=x86_64,SHLVL=3,PWD=/scratch/cluster-share/mime4/mageedan/TestBench/cudaBased,GROUP=upg48448,HOST=submit-em64t-01.hpc.engr.oregonstate.edu,REMOTEHOST=compute-e-1.hpc.engr.oregonstate.edu,HOSTNAME=submit-em64t-01.hpc.engr.oregonstate.edu,LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:,CVS_RSH=ssh,KDEDIRS=/usr,QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins,LESSOPEN=||/usr/bin/lesspipe.sh %s,MODULESHOME=/usr/share/Modules,MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles,LOADEDMODULES=modules,PERL_HOMEDIR=1,PERL_LOCAL_LIB_ROOT=/nfs/stak/users/mageed/perl5,PERL_MB_OPT=--install_base /nfs/stak/users/mageed/perl5,PERL_MM_OPT=INSTALL_BASE=/nfs/stak/users/mageed/perl5,PERL5LIB=/nfs/stak/users/mageed/perl5/lib/perl5,QTDIR=/usr/lib64/qt-3.3,QTINC=/usr/lib64/qt-3.3/include,QTLIB=/usr/lib64/qt-3.3/lib,QT_GRAPHICSSYSTEM_CHECKED=1,OLDPWD=/nfs/stak/users/mageed,INFINALITY_FT_FILTER_PARAMS=11 22 38 22 11,INFINALITY_FT_STEM_ALIGNMENT_STRENGTH=25,INFINALITY_FT_STEM_FITTING_STRENGTH=25,INFINALITY_FT_STEM_SNAPPING_SLIDING_SCALE=40,INFINALITY_FT_USE_KNOWN_SETTINGS_ON_SELECTED_FONTS=true,INFINALITY_FT_CHROMEOS_STYLE_SHARPENING_STRENGTH=0,INFINALITY_FT_WINDOWS_STYLE_SHARPENING_STRENGTH=10,INFINALITY_FT_AUTOHINT_SNAP_STEM_HEIGHT=100,INFINALITY_FT_USE_VARIOUS_TWEAKS=true,INFINALITY_FT_GAMMA_CORRECTION=0 100,INFINALITY_FT_BRIGHTNESS=0,INFINALITY_FT_CONTRAST=0,INFINALITY_FT_GRAYSCALE_FILTER_STRENGTH=0,INFINALITY_FT_FRINGE_FILTER_STRENGTH=0,INFINALITY_FT_AUTOHINT_HORIZONTAL_STEM_DARKEN_STRENGTH=10,INFINALITY_FT_AUTOHINT_VERTICAL_STEM_DARKEN_STRENGTH=25,INFINALITY_FT_AUTOHINT_INCREASE_GLYPH_HEIGHTS=true,INFINALITY_FT_GLOBAL_EMBOLDEN_X_VALUE=0,INFINALITY_FT_GLOBAL_EMBOLDEN_Y_VALUE=0,INFINALITY_FT_BOLD_EMBOLDEN_X_VALUE=0,INFINALITY_FT_BOLD_EMBOLDEN_Y_VALUE=0,_VIRTUALENVWRAPPER_API= mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv,VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh,ZSH=/nfs/stak/users/mageed/.oh-my-zsh,PAGER=less,LESS=-R,LSCOLORS=Gxfxcxdxbxegedabagacad,EDITOR=nano,HPCHOST=submit-em64t-01.hpc.engr.oregonstate.edu,CUDAPATH=/usr/local/apps/cuda/cuda-9.0,SGEPTH=/scratch/a1/sge,SCRATCH=/scratch/cluster-share/mime4,_=/bin/csh,SGE_ROOT=/scratch/a1/sge,SGE_CELL=default,SGE_CLUSTER_NAME=COEHPC,MANPATH=/scratch/a1/sge/man:/scratch/a1/sge/man:/usr/share/man/overrides:/usr/share/man:/usr/local/share/man,_LMFILES_=/usr/share/Modules/modulefiles/modules
+script_file:                runGPUT.sh
+parallel environment:  mpich2i range: 40
+department:                 defaultdepartment
+binding:                    NONE
+mbind:                      NONE
+submit_cmd:                 qsub runGPUT.sh
+start_time            1:    11/30/2017 16:10:55.945
+job_state             1:    r
+exec_host_list        1:    compute-e-1.hpc.engr.oregonstate.edu:20, compute-e-2.hpc.engr.oregonstate.edu:20
+usage                 1:    wallclock=00:00:00, cpu=00:00:00, mem=0.00000 GBs, io=0.00000 GB, iow=0.000 s, ioops=0, vmem=N/A, maxvmem=N/A
+scheduling info:            (Collecting of scheduler job information is turned off)

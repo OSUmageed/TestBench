@@ -1,23 +1,9 @@
+NATLIB := -L$(MPIPATH)/lib -I/usr/include/openmpi-x86_64 -lmpi -lm -std=c++11 -O3
 
-MPICC=$(PREP) mpicc
-MPILD=$(PREP) mpic++
-NVCC=$(PREP) nvcc
+default: ./bin/mpicu ./bin/mpiom
 
-# It will put the compiled programs in the bin subdirectory within the directory
-# containing the makefile
-PROJECTDIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-OUTDIR := $(PROJECTDIR)bin
+./bin/mpicu: mpi_omp_cuda.cu
+	nvcc mpi_omp_cuda.cu -o ./bin/mpicuomp $(NATLIB) -gencode arch=compute_35,code=sm_35
 
-
-GENCODE := -gencode arch=compute_35,code=sm_35 -std=c++11
-PARALLELLIB := -lmpi -Xcompiler -fopenmp 
-NATLIB = -lm -restrict -O3 
-CROSSLIB := -Xptxas=-v 
-INC :=  -I/usr/include/mpi
-
-CUDAFLAGS := $(GENCODE) $(NATLIB) $(INC) $(CROSSLIB) $(PARALLELLIB) 
-
-default: $(OUTDIR)/Listofcppfiles
-
-$(OUTDIR)/Listofcppfiles: cppfile
-	filesandflags
+./bin/mpiom: mpi_omp.cpp
+	mpic++ mpi_omp.cpp -o ./bin/mpiom $(NATLIB)

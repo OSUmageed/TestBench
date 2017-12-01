@@ -6,3 +6,5 @@
 *.fatbin
 */bin
 *.exe
+*.o[0-9]*
+*.po*

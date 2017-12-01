@@ -7,7 +7,6 @@ import subprocess as sp
 import shlex
 
 ## Change these on linux
-win=".exe"
 outpath = "bin"
 
 projpath = op.abspath(op.dirname(__file__))

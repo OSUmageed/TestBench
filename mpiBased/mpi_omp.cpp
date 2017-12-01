@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpi.h>
-#include <omp.h>
 #include <sched.h>
 #include <unistd.h>
 
@@ -16,26 +15,26 @@ using namespace std;
 void getDeviceInformation()
 {
     char procN[rlen];
-    int nthreads = omp_get_num_procs();
+    //int nthreads = omp_get_num_procs();
     MPI_Get_processor_name(procN,  &rlen);
     int cid = sched_getcpu();
 
-    cout << ranks << " " << procN << " " << nthreads << endl;
+    cout << ranks << " " << procN << " " << endl;
 }
 
-void threadLocTest(int nt)
-{
-    #pragma omp parallel for num_threads(nt)
-    for (int n=0; n<nt; n++)
-    {
-        double tm = omp_get_wtime();
-        int tid = omp_get_thread_num();
-        int cid = sched_getcpu();
-        printf("Rank: %i --- Thread: %i --- on CPU: %i --- Time %.9f.\n", ranks, tid, cid, tm);
-        sleep(5);
-        fflush(stdout); 
-    }
-}
+//void threadLocTest(int nt)
+//{
+//    #pragma omp parallel for num_threads(nt)
+//    for (int n=0; n<nt; n++)
+//    {
+//        double tm = omp_get_wtime();
+//        int tid = omp_get_thread_num();
+//        int cid = sched_getcpu();
+//        printf("Rank: %i --- Thread: %i --- on CPU: %i --- Time %.9f.\n", ranks, tid, cid, tm);
+//        sleep(5);
+//        fflush(stdout); 
+//    }
+//}
 
 // Test device sight.
 int main(int argc, char *argv[])
@@ -48,10 +47,10 @@ int main(int argc, char *argv[])
     MPI_Barrier(MPI_COMM_WORLD);
     cout << endl;
 
-    if (!ranks) cout << "rank -- tid -- cpuid -- Time" << endl;
+    
     // Look at where the threads are place in OMP when running with two+ procs
     int nt = atoi(argv[1]); //Nthreads
-    threadLocTest(nt);
+   // threadLocTest(nt);
     MPI_Barrier(MPI_COMM_WORLD);
     MPI_Finalize();
 }
