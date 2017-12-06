@@ -1,0 +1,25 @@
+
+NVIDIA_DRIVER_HOME=/usr/lib64/nvidia
+#NVIDIA_DRIVER_HOME=/tools/PKG/NVIDIA-driver-270.41.19
+
+MPICC=$(MPIPATH)/bin/mpic++
+IP := $(MPIPATH)/include
+ILP := $(INTELLIB)
+
+CUDA_CFLAGS=-gencode arch=compute_35,code=sm_35 -w --ptxas-options=-v 
+CUDA_INCLUDE=-I$(CUDAPATH)/include -I$(CUDAPATH)/NVML
+CUDA_LDFLAGS=-L$(CUDAPATH)/lib64 -L$(NVIDIA_DRIVER_HOME) -L$(ILP)
+#CUDA_LIBS=-lnvidia-ml
+CUDA_LIBS=$(NVIDIA_DRIVER_HOME)/libnvidia-ml.so
+
+XL := -Wl,-rpath=$(ILP) -Wl,-rpath=$(CUDAPATH)/lib64 -Wl,-rpath=$(NVIDIA_DRIVER_HOME) 
+LIBF := -lm -lcuda -lcudart
+
+# global rules: all, clean, depend
+all: ./bin/gpuD
+
+# rules to build the CUDA load sensor
+./bin/gpuD: gpuDetect.cpp
+	$(MPICC) gpuDetect.cpp -o ./bin/gpuD $(CUDA_INCLUDE) $(CUDA_OBJS) $(CUDA_LDFLAGS) $(CUDA_LIBS) $(LIBF) $(XL)
+
+

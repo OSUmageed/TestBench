@@ -1,20 +1,24 @@
 #!/bin/csh
 
 #$ -cwd
-#$ -N gpuDetector
+#$ -N gpuImprove
 #$ -q mime4
-#$ -pe mpich3i 40
-#$ -R y
+#$ -pe mpich2 32-40
 #$ -j y
+#$ -R y
 #$ -l h='compute-e-[1-2]
 
-sleep 10
+hostname
 
-echo $TMPDIR
+ls $TMPDIR
 
 echo $NSLOTS
 
-echo "mpirun -n $NSLOTS -machinefile $TMPDIR/machines ./bin/gpuD"
+which cuda
 
-mpirun -n $NSLOTS -machinefile $TMPDIR/machines ./bin/gpuD
+sleep 1
+
+echo "mpirun -n $NSLOTS -machinefile $TMPDIR/machines ./bin/newgpuD"
+
+$MPIPATH/bin/mpirun -np $NSLOTS -machinefile $TMPDIR/machines ./bin/newgpuD
 

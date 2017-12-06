@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <vector>
 #include <utility>  
 #include <cuda.h>
@@ -38,7 +39,7 @@ int getDeviceInformation(int *hG, assigner *pr, int cnt)
     int domy, busy, tag=-1, hit=0;
 
     cout << nGpu << endl;
-    cout << ranks << " ---------- " << voy.procN << " --- " << nGpu << " -----" << endl;
+    cout << ranks << "---------- " << voy.procN << " --- " << nGpu << " -----" << endl;
     if (!cnt) hit = 1;
 
     for (int k=0; k<nGpu; k++)
@@ -108,9 +109,6 @@ int main(int argc, char *argv[])
     MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
     //MPI_Status stat;
     MPI_Datatype atype;
-	#ifdef __CUDA_ARCH__
-	cout << CUDART_VERSION << " " << __CUDA_ARCH__ << " " << endl;
-	#endif
     // assigner inuit;
     // inuit.dom = 1111;
     // inuit.bus = 2222;
