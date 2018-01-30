@@ -1,0 +1,4 @@
+LIBS= -lmpi
+IPATH= -Iusr/include/mpi
+#LPATH= 
+
