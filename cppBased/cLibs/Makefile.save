@@ -1,0 +1,12 @@
+
+vs = vlib.so
+bs = tlib.so
+mains = mApp
+
+all: vs bs mains
+
+
+
+
+mains: maintest.cpp
+	g++  maintest.cpp -o mApp -ldl
